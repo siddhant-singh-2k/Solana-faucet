@@ -1,4 +1,5 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
 export function Airdrop() {
     const wallet = useWallet();
@@ -6,8 +7,8 @@ export function Airdrop() {
 
 
     async function sendAirdropToUser(){
-        const amount = document.getElementById("publicKey").vlaue
-        await connection.requestAirdrop(wallet.publicKey, amount *10000000)
+        const amount = document.getElementById("publicKey").value;
+        await connection.requestAirdrop(wallet.publicKey, amount *LAMPORTS_PER_SOL)
         alert("Airdropped Done");
     }
     return <div>

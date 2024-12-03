@@ -19,7 +19,7 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 
 function App() {
   return (
-    <ConnectionProvider endpoint={"https://aged-twilight-wish.solana-devnet.quiknode.pro/f5c0fbe5fac4c69a33548750c9d6620797aae1a6"}>
+    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <WalletMultiButton></WalletMultiButton>
