@@ -4,7 +4,7 @@ import {
   WalletProvider,
 } from "@solana/wallet-adapter-react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
+
 import {
   WalletModalProvider,
   WalletDisconnectButton,
@@ -14,6 +14,8 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import { Airdrop } from "./Airdrop";
 
+
+
 // Default styles that can be overridden by your app
 import "@solana/wallet-adapter-react-ui/styles.css";
 
@@ -22,16 +24,17 @@ function App() {
     <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton></WalletMultiButton>
-          <WalletDisconnectButton></WalletDisconnectButton>
-          <div>
-            <b>Hello there</b>
+          <div className="flex flex-col items-center space-y-4 p-4 bg-gray-100 min-h-screen">
+            <WalletMultiButton className="btn btn-primary" />
+            <WalletDisconnectButton className="btn btn-secondary" />
+            <div className="text-xl font-bold text-blue-500">
+            </div>
+            <Airdrop />
           </div>
-          <Airdrop>
-          </Airdrop>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
 }
+
 export default App;
